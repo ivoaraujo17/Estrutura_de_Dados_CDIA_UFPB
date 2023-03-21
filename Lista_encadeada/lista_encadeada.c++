@@ -58,6 +58,19 @@ void Lista_encadeada::add_inicio(int valor){
     tam_lista += 1;
 }
 
+void Lista_encadeada::add_meio(int pos, int valor){
+    No* novo_no = new No(valor);
+    No* no_atual = cabeca;
+    int posicao_atual = 1;
+    while (posicao_atual < pos -1){
+        no_atual = no_atual->get_proximo_no();
+        posicao_atual ++;
+    }
+    novo_no->set_ptr(no_atual->get_proximo_no());
+    no_atual->set_ptr(novo_no);
+    tam_lista ++;
+}
+
 void Lista_encadeada::add_final(int valor){
 
     No* novo_no = new No(valor);
@@ -77,11 +90,29 @@ void Lista_encadeada::add(int p, int v){
     else if (p==(tam_lista+1)){
         add_final(v);
     }
-    else if (p > tam_lista+1){
+    else if (p > tam_lista+1 or p < 1){
         cout << "\nPosicao invalida\n";
+    }
+    else{
+        add_meio(p, v);
     }
 }
 
+void Lista_encadeada::remove_inicio(){
+    No* auxiliar = cabeca;
+    cabeca = cabeca->get_proximo_no();
+    delete auxiliar;
+    tam_lista --;
+}
+
+void Lista_encadeada::remove_meio_final(int pos){
+    int posicao_atual = 1;
+    No* auxiliar = cabeca;
+    while (posicao_atual < pos -1){
+        auxiliar = auxiliar->get_proximo_no();
+    }
+    
+}
 
 void Lista_encadeada::display(){
     No* no_atual = cabeca;

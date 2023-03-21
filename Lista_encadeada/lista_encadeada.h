@@ -20,6 +20,9 @@ class Lista_encadeada{
 
     void add_final(int valor);
     void add_inicio(int valor);
+    void add_meio(int pos, int valor);
+    void remove_meio_final(int pos);
+    void remove_inicio();
 
     public:
         Lista_encadeada();
