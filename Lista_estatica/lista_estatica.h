@@ -13,6 +13,7 @@ public:
     int cheia();
     int len();
     int get(int pos);
+    void modificar(int pos, int valor);
     void add(int pos, int valor);
     void remove(int pos);
     void display();

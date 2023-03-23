@@ -30,6 +30,17 @@ int main(){
     lista.add(9,19);
     lista.display();
 
+    cout << "\n\nBuscanco elemento da posicao 4";
+    cout << "\n" << lista.get(4) << endl;
+    cout << "\nModificando elementos pos(1, 4,10), valor(30,40,50)";
+    lista.modificar(1,30);
+    lista.modificar(4, 40);
+    lista.modificar(10, 50);
+    lista.display();
+    cout << "\nModificando em pos invalida (-1 e 11)";
+    lista.modificar(-1, 100);
+    lista.modificar(11, 200);
+
     cout << "\n\nVerificando se esta cheia!";
     cout << "\n" <<lista.cheia();
     
@@ -48,11 +59,9 @@ int main(){
     cout << "\nTentando remove em posicao invalida";
     lista.remove(9);
     
-    
     cout << "\n\nTamanho da lista";
-    cout << "\n" << lista.len();
-    cout << "\n\nBuscanco elemento da posicao 4";
-    cout << "\n" << lista.get(4) << endl;
+    cout << "\n" << lista.len() << endl;
+    
     system("pause");
     return 0;
 }

@@ -46,6 +46,19 @@ int Lista::get(int pos){
     }
 }
 
+void Lista::modificar(int pos, int valor){
+    if (pos < 1 or pos >= pos_valida){
+        cout << "\nPosicao invalida!";
+    }
+    else{
+        int pos_atual = 1;
+        while (pos_atual != pos){
+            pos_atual ++;
+        }
+        lista[pos_atual -1] = valor;
+    }
+}
+
 void Lista::add(int pos, int valor){
     if(pos > pos_valida or pos < 1){
         cout << "\nErro, possicao invalida!";
