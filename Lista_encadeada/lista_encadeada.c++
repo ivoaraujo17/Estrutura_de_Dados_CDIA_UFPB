@@ -51,6 +51,16 @@ int Lista_encadeada::get(int pos){
     }
 }
 
+void Lista_encadeada::modificar(int pos, int valor){
+    int pos_atual = 1;
+    No* aux = cabeca;
+    while (pos_atual != pos){
+        aux = aux->get_proximo_no();
+        pos_atual ++;
+    }
+    aux->set_valor(valor);
+}
+
 void Lista_encadeada::add_inicio(int valor){
     No* novo_no = new No(valor);
     novo_no->set_ptr(cabeca);
@@ -106,12 +116,33 @@ void Lista_encadeada::remove_inicio(){
 }
 
 void Lista_encadeada::remove_meio_final(int pos){
-    int posicao_atual = 1;
-    No* auxiliar = cabeca;
-    while (posicao_atual < pos -1){
-        auxiliar = auxiliar->get_proximo_no();
+    if (pos > tam_lista){
+        cout << "Posicao invalida!";
     }
-    
+    else{
+        int posicao_atual = 1;
+        No* auxiliar = cabeca;
+        while (posicao_atual < pos -1){
+            auxiliar = auxiliar->get_proximo_no();
+            posicao_atual ++;
+        }
+        No* remover = auxiliar->get_proximo_no();
+        auxiliar->set_ptr(remover->get_proximo_no());
+        delete remover;
+        tam_lista --;
+    }
+}
+
+void Lista_encadeada::remove(int pos){
+    if (tam_lista == 0){
+        cout << "Lista vazia, impossivel remover!";
+    }
+    if (pos == 1){
+        remove_inicio();
+    }
+    else{
+        remove_meio_final(pos);
+    }
 }
 
 void Lista_encadeada::display(){

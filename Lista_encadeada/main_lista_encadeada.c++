@@ -22,6 +22,25 @@ int main()
     cout << "Adicionando 50 na posicao 3\n";
     lista.add(3, 50);
     lista.display();
+
+    cout << "\n------------------" << endl;
+    cout << "Modificando o valor da pos 3 pelo valor 100\n";
+    lista.modificar(3, 100);
+    lista.display();
+
+    cout << "\n------------------" << endl;
+    cout << "removendo a posicao 1\n";
+    lista.remove(1);
+    lista.display();
+    cout << "\n------------------" << endl;
+    cout << "removendo a posicao 2\n";
+    lista.remove(2);
+    lista.display();
+    cout << "\n------------------" << endl;
+    cout << "removendo a ultima posicao\n";
+    lista.remove(lista.len());
+    lista.display();
+
     cout << "\n------------------" << endl;
     cout << "Tamanho da lista: ";
     cout << lista.len() << endl;
