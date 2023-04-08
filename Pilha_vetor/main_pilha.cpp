@@ -13,13 +13,13 @@ int main(){
     Pilha.push(1);
     Pilha.push(2);
     Pilha.push(3);
-    Pilha.push(2);
     Pilha.push(4);
     Pilha.push(5);
     Pilha.push(6);
     Pilha.push(7);
     Pilha.push(8);
     Pilha.push(9);
+    Pilha.push(10);
     Pilha.display();
 
     cout << "\n\ntentando empilhar mais um elemento";
