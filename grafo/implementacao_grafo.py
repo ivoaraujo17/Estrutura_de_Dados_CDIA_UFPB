@@ -37,8 +37,8 @@ class Graph:
                     Q.put(v)
             self.cor[u] = PRETO
         
-        print(self.d)
-        print(self.pai)
+        print("\nBFS_Lista_de_distancias ", self.d)
+        print("BFS_Lista_de_pais: ",self.pai)
 
     def dfs(self):
         for u in range(self.n):
