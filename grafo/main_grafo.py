@@ -26,7 +26,6 @@ def load_from(fileName):
 
 gr = load_from("grafo/pcv4.txt")
 gr.dfs()
-gr.print_grafo()
 gr.bfs(1)
 gr.print_grafo()
 print("Numero de Componentes Conexas: " + str(gr.num_componentes_conexas()))
