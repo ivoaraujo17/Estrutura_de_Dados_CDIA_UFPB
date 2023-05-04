@@ -1,10 +1,12 @@
-from implementacao_grafo import Grafo
+# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+from implementacao_grafo import Graph
 
 def load_from(fileName):
     f = open(fileName, 'r')
     n = int(f.readline())
     
-    g = Grafo(n)
+    g = Graph(n)
     
     l = 0
     for line in f:
@@ -12,17 +14,19 @@ def load_from(fileName):
         numeros = line.split("\t")
         #print(numeros)
         c = 0
-        for _id in range(g.vertices):
-            g.adicionar_aresta(c, l)
+        for no in range(g.n):
+            i = numeros[no]
+            g.M[l][c] = int(i)
+            if(g.M[l][c] > 0):
+                g.L[l].append(c)
+            
             c += 1
         l += 1
     return g
 
-
-
-gr = load_from("grafo/pcv10.txt")
-gr.bfs(1, 8)
-gr.dfs(1, 8)
-gr.print_info()
-
-
+gr = load_from("grafo/pcv4.txt")
+gr.dfs()
+gr.print_grafo()
+gr.bfs(1)
+gr.print_grafo()
+print("Numero de Componentes Conexas: " + str(gr.num_componentes_conexas()))
