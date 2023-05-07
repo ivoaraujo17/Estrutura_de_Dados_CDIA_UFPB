@@ -48,22 +48,23 @@ class Graph:
     def dfs_iter(self, u):
         S = []
         S.append(u)
-        
         while S:
-            u = S.pop()
+            u = S[-1]
             if self.cor[u] == BRANCO:
                 self.cor[u] = CINZA
                 for v in self.L[u]:
+                    if v in S:
+                        continue
                     if self.cor[v] == BRANCO:
                         self.pai[v] = u
                         S.append(v)
             else:
+                S.pop()
                 self.cor[u] = PRETO
 
     def dfs_visit(self, u):
         S = []
         S.append(u)
-        
         while S:
             u = S[-1]
             if self.cor[u] == BRANCO:
